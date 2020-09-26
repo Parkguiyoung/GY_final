@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+            <!-- --------------------------------- 프로젝트 수정모달 --------------------------------- -->
+
+		 <div id="selMember" style="margin-left:15px; margin-top:5px; margin-right:0px; width:95px;">
+		 	<span id="selectBox1" style="font-size:12px; margin-left:5px;" onClick="choiceSelectBox(this);">멤버리스트　▼</span>
+		 	<div id="testVal" class="testVal" style="width:100px;">
+		 		<!-- 전체 멤버리스트 뿌리기. value에 user_num 받아오기. id, 라벨 for,text 값에 이름 받아오기 -->
+		 		<c:forEach items="${member }" var="m">
+		  			<input type="checkbox" name="user_num" id="${m.name }" style="margin-left:5px; margin-right:5px;" value="${m.user_num }"><label for="${m.name }" style="font-size:11px; margin-bottom:0;">${m.name }</label>
+		 		</c:forEach>
+		 	</div>
+		 </div>
+		 
+            <!-- --------------------------------- 프로젝트 수정모달 --------------------------------- --> 
+
+
+
+</body>
+</html>

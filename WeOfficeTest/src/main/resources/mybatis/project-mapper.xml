@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="project">
+
+	<select id="selectAll" resultType="projectDto">
+		SELECT * FROM PROJECT
+		ORDER BY P_ID DESC
+	</select>
+		
+	<select id="selectOne" parameterType="projectDto" resultType="projectDto">
+		SELECT * FROM PROJECT
+		WHERE P_ID = #{p_id}
+	</select>
+	
+	<insert id="insert" parameterType="projectDto">
+		INSERT INTO PROJECT
+		VALUES(P_ID_SEQ.NEXTVAL, #{p_title}, #{p_info}, #{p_pub}, #{user_num}, #{p_startdate}, #{p_enddate})
+	</insert>
+	
+	<update id="update" parameterType="projectDto">
+		UPDATE PROJECT
+		SET P_TITLE = #{p_title},
+			P_INFO = #{p_info},
+			P_PUB = #{p_pub},
+			USER_NUM = #{user_num},
+			P_STARTDATE = #{p_startdate},
+			P_ENDDATE = #{p_enddate}
+		WHERE P_ID = #{p_id}
+	</update>
+	
+	<delete id="delete" parameterType="projectDto">
+		DELETE FROM PROJECT
+		WHERE P_ID = #{p_id}
+	</delete>
+	
+	
+	<select id="selectMember" resultType="memberDto">
+		SELECT * FROM MEMBER
+		ORDER BY NAME
+	</select>
+	
+</mapper>
